@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nievatodo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet"> 
+</head>
+<body>
+    <header>
+        <h1>Nievato-do</h1>
+    </header>
+    <main>
+        <form class="formulary" action="#">
+            <div class="todo">
+                <label for="items" class="info">Insert your to-do things below</label>
+                <textarea placeholder="I must do... " class="todo-input" name="items" id="items" cols="30" rows="6"></textarea>
+                <input type="submit" class="btn" value="To-do it!">
+            </div>
+            <div class="content">
+                <h2 class="info-here">Your to-do items</h2>
+                <div class="todo-items">
+                    <ul class="todo-items-list">
+                        <li><span>Test item #1</span></li>
+                        <li><span>Test item #2</span></li>
+                        <li><span>Test item #3</span></li>
+                        <li><span>Test item #4</span></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+html {
+    height: 100%;
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(to left top, #c2f9ea, #93f5da);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 4.5em;
+    text-align: center;
+}
+
+main {
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.formulary {
+    display: flex;
+
+    background-color: white;
+    border-radius: 1.1em;
+    outline: #000;
+    outline-width: 5px;
+}
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 20px 40px 30px 40px;
+}
+
+.content {
+    flex: 1;
+    margin: 20px 40px 30px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info, .info-here {
+    display: block;
+    font-weight: 400;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px; 
+    margin-top: 0;
+}
+
+.todo-items {
+    flex: 1;
+}
+
+.todo-items-list {
+    margin: 0;
+}
+
+.todo-items-list li {
+    margin-bottom: 15px;
+}
+
+.todo-items-list li span {
+    font-size: 1.2em;
+}
+
+.todo-input {
+    box-sizing: border-box;
+    resize: none;
+    font-size: 1.3em;
+    padding: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.btn {
+    height: 40px;
+    width: 100%;
+    background: linear-gradient(to left top, #c2f9ea, #93f5da);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
