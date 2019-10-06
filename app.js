@@ -4,7 +4,7 @@ initEventListeners();
 
 function initEventListeners()
 {
-    document.querySelector(".formulary").addEventListener("submit", appendItem);
+    document.querySelector("#formulary").addEventListener("submit", appendItem);
 }
 
 function appendItem(event)
@@ -16,9 +16,17 @@ function appendItem(event)
     const item = document.createElement("li");
     item.innerHTML = `
         <span>${textArea.value}</span>
+        <button type="button" class="btn-close">&times;</button>
     `;
+
+    item.lastElementChild.addEventListener("click", deleteItem);
 
     itemsList.appendChild(item);
 
     textArea.value = "";
+}
+
+function deleteItem(event)
+{
+    event.target.parentElement.remove();
 }
