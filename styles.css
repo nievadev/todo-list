@@ -62,14 +62,26 @@ main {
 
 .todo-items-list {
     margin: 0;
+    padding: 0;
 }
 
 .todo-items-list li {
     margin-bottom: 15px;
+    display: block;
+    width: 100%;
+}
+
+.todo-items-list li:after {
+    content: "\2715";
+    float: right;
+    position: absolute;
+    font-size: 1.3em;
 }
 
 .todo-items-list li span {
     font-size: 1.2em;
+    display: inline-block;
+    width: 100%;
 }
 
 .todo-input {
@@ -81,6 +93,11 @@ main {
     width: 100%;
     border-radius: 10px;
     border: 1px solid grey;
+    transition: all 0.1s;
+}
+
+.todo-input:focus {
+    border: 1px solid #93f5da;
 }
 
 .btn {
