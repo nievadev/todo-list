@@ -1,4 +1,4 @@
-const itemsList = document.querySelector(".todo-items-list");
+const itemsList = document.querySelector("#todoItemsList");
 
 initEventListeners();
 
@@ -11,7 +11,7 @@ function appendItem(event)
 {
     event.preventDefault();
 
-    const textArea = document.querySelector(".todo-input");
+    const textArea = document.querySelector("#todoInput");
 
     const item = document.createElement("li");
     item.innerHTML = `
@@ -30,3 +30,6 @@ function deleteItem(event)
 {
     event.target.parentElement.remove();
 }
+
+// Add character limit
+// Add hover effects to button
