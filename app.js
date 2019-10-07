@@ -1,11 +1,21 @@
 const itemsList = document.querySelector("#todoItemsList");
 
-initEventListeners();
+document.querySelector("#formulary").addEventListener("submit", appendItem);
 
-function initEventListeners()
+if (localStorage.getItem("items") === null)
 {
-    document.querySelector("#formulary").addEventListener("submit", appendItem);
+    localStorage.setItem("items", "[]");
 }
+
+let itemsArray = JSON.parse(localStorage.getItem("items"));
+itemsArray.forEach(function(itemString) {
+    const item = document.createElement("li");
+    item.innerHTML = `
+        <span>${itemString}</span>
+        <button type="button" class="btn-close">&times;</button>
+    `;
+    itemsList.appendChild(item);
+});
 
 function appendItem(event)
 {
@@ -21,7 +31,13 @@ function appendItem(event)
 
     item.lastElementChild.addEventListener("click", deleteItem);
 
+    // Add item to DOM
     itemsList.appendChild(item);
+
+    // Add item to local storage
+    let itemsArray = JSON.parse(localStorage.getItem("items"));
+    itemsArray.push(item.firstElementChild.textContent);
+    localStorage.setItem("items", JSON.stringify(itemsArray));
 
     textArea.value = "";
 }
