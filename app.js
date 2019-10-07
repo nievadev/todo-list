@@ -7,7 +7,9 @@ if (localStorage.getItem("items") === null)
     localStorage.setItem("items", "[]");
 }
 
-let itemsArray = getArrayFromLocalStorage();
+const itemsArray = getArrayFromLocalStorage();
+
+// Add to DOM existing items
 itemsArray.forEach(function(itemString) {
     const item = document.createElement("li");
     item.innerHTML = `
@@ -21,7 +23,20 @@ function appendItem(event)
 {
     event.preventDefault();
 
+    let itemsArray = getArrayFromLocalStorage();
+
     const textArea = document.querySelector("#todoInput");
+
+    if (itemsArray.includes(textArea.value))
+    {
+        return;
+    }
+
+    if (!textArea.value.replace(/\s/g, "").length)
+    {
+        textArea.value = "";
+        return;
+    }
 
     const item = document.createElement("li");
     item.innerHTML = `
@@ -35,7 +50,6 @@ function appendItem(event)
     itemsList.appendChild(item);
 
     // Add item to local storage
-    let itemsArray = getArrayFromLocalStorage();
     itemsArray.push(item.firstElementChild.textContent);
     localStorage.setItem("items", JSON.stringify(itemsArray));
 
