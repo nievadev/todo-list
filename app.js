@@ -7,7 +7,7 @@ if (localStorage.getItem("items") === null)
     localStorage.setItem("items", "[]");
 }
 
-let itemsArray = JSON.parse(localStorage.getItem("items"));
+let itemsArray = getArrayFromLocalStorage();
 itemsArray.forEach(function(itemString) {
     const item = document.createElement("li");
     item.innerHTML = `
@@ -35,7 +35,7 @@ function appendItem(event)
     itemsList.appendChild(item);
 
     // Add item to local storage
-    let itemsArray = JSON.parse(localStorage.getItem("items"));
+    let itemsArray = getArrayFromLocalStorage();
     itemsArray.push(item.firstElementChild.textContent);
     localStorage.setItem("items", JSON.stringify(itemsArray));
 
@@ -45,6 +45,11 @@ function appendItem(event)
 function deleteItem(event)
 {
     event.target.parentElement.remove();
+}
+
+function getArrayFromLocalStorage()
+{
+    return JSON.parse(localStorage.getItem("items"));
 }
 
 // Add character limit
