@@ -16,6 +16,7 @@ itemsArray.forEach(function(itemString) {
         <span>${itemString}</span>
         <button type="button" class="btn-close">&times;</button>
     `;
+    item.lastElementChild.addEventListener("click", deleteItem);
     itemsList.appendChild(item);
 });
 
@@ -58,6 +59,12 @@ function appendItem(event)
 
 function deleteItem(event)
 {
+    let itemsArray = getArrayFromLocalStorage();
+    let targetIndex = itemsArray.indexOf(event.target.previousElementSibling.textContent);
+
+    itemsArray.splice(targetIndex, 1);
+    localStorage.setItem("items", JSON.stringify(itemsArray));
+
     event.target.parentElement.remove();
 }
 
