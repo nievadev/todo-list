@@ -11,6 +11,7 @@ if (localStorage.getItem("items") == "[]")
 {
     const noItems = document.createElement("span");
     noItems.innerText = "No items to-do yet";
+    noItems.className = "no-items";
     itemsList.appendChild(noItems);
 }
 
@@ -83,6 +84,7 @@ function deleteItem(event)
     {
         const noItems = document.createElement("span");
         noItems.innerText = "No items to-do yet";
+        noItems.className = "no-items";
         itemsList.appendChild(noItems);
     }
 }
