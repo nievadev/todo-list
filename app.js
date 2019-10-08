@@ -7,6 +7,13 @@ if (localStorage.getItem("items") === null)
     localStorage.setItem("items", "[]");
 }
 
+if (localStorage.getItem("items") == "[]")
+{
+    const noItems = document.createElement("span");
+    noItems.innerText = "No items to-do yet";
+    itemsList.appendChild(noItems);
+}
+
 const itemsArray = getArrayFromLocalStorage();
 
 // Add to DOM existing items
@@ -22,6 +29,11 @@ itemsArray.forEach(function(itemString) {
 
 function appendItem(event)
 {
+    if (localStorage.getItem("items") == "[]")
+    {
+        itemsList.lastElementChild.remove();
+    }
+
     event.preventDefault();
 
     let itemsArray = getArrayFromLocalStorage();
@@ -66,6 +78,13 @@ function deleteItem(event)
     localStorage.setItem("items", JSON.stringify(itemsArray));
 
     event.target.parentElement.remove();
+    
+    if (localStorage.getItem("items") == "[]")
+    {
+        const noItems = document.createElement("span");
+        noItems.innerText = "No items to-do yet";
+        itemsList.appendChild(noItems);
+    }
 }
 
 function getArrayFromLocalStorage()
