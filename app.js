@@ -15,9 +15,9 @@ if (localStorage.getItem("items") == "[]")
     itemsList.appendChild(noItems);
 }
 
+// Add to DOM existing items
 const itemsArray = getArrayFromLocalStorage();
 
-// Add to DOM existing items
 itemsArray.forEach(function(itemString) {
     const item = document.createElement("li");
     item.innerHTML = `
@@ -43,12 +43,14 @@ function appendItem(event)
 
     if (itemsArray.includes(textArea.value))
     {
+        popError("You have already submitted this to-do item!");
         return;
     }
 
     if (!textArea.value.replace(/\s/g, "").length)
     {
         textArea.value = "";
+        popError("You can't submit a blank item!");
         return;
     }
 
@@ -92,6 +94,17 @@ function deleteItem(event)
 function getArrayFromLocalStorage()
 {
     return JSON.parse(localStorage.getItem("items"));
+}
+
+function popError(str)
+{
+    document.querySelector("#error").style.display = "flex";
+
+    document.querySelector("#errorMessage").innerText = str;
+
+    document.querySelector("#error").addEventListener("click", function() {
+        document.querySelector("#error").style.display = "none";
+    });
 }
 
 // Add character limit
