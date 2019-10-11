@@ -142,14 +142,12 @@ main {
     width: 100%;
     border: 3px solid #c2f9ea;
     border-radius: 10px;
-    z-index: 9;
     position: relative;
-    background: none;
+    background-color: #c2f9ea;
 }
 
 .btn:hover {
     cursor: pointer;
-    background: none;
 }
 
 @media only screen and (max-width: 1240px) {

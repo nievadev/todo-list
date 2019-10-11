@@ -30,6 +30,8 @@ itemsArray.forEach(function(itemString) {
 
 function appendItem(event)
 {
+    event.preventDefault();
+
     if (localStorage.getItem("items") == "[]")
     {
         itemsList.lastElementChild.remove();
